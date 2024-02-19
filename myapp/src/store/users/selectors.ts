@@ -6,3 +6,4 @@ const UsersSelector = (state: RootState) => state.user
 export const selectUser = createSelector(UsersSelector ,(state) => state.user)
 
 export const selectPlaceholderData = createSelector(UsersSelector, state => state.placeHolderData)
+export const selectWeather = createSelector(UsersSelector, state=>state.weatherData)

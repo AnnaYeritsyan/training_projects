@@ -6,15 +6,17 @@ export type PlaceHolderItem =
         name: string,
         username: string,
         email: string;
-
+       
     }
 type InitialState = {
     user: null | string,
     placeHolderData: Array<PlaceHolderItem>,
+    weatherData:Array<PlaceHolderItem>
 }
 const initialState: InitialState = {
     user: null,
     placeHolderData: [],
+    weatherData:[],
 }
 export const userSlice = createSlice({
     name: "user",
@@ -43,6 +45,12 @@ export const userSlice = createSlice({
         },
         logout: (state) => {
             state.user = null;
+        },
+        weatherData:(state, action)=>{
+            return{
+                ...state,
+                weatherData:action.payload
+            }
         }
     }
 })

@@ -25,13 +25,13 @@ interface Props {
 }
 
 const drawerWidth = 240;
-const navItems =[
-    { item: 'Home', address: '/' },
-    { item: 'Dashboard', address: '/dashboard' },
-    { item: 'Lee Algorithm', address: '/lee_algorithm' },
-    { item: 'Weather', address: '/weather' },
-    
-  ]
+const navItems = [
+  { item: 'Home', address: '/' },
+  { item: 'Dashboard', address: '/dashboard' },
+  { item: 'Lee Algorithm', address: '/lee_algorithm' },
+  { item: 'Weather', address: '/weather' },
+
+]
 export default function Navbar(props: Props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -43,18 +43,18 @@ export default function Navbar(props: Props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
+        MyApp
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item:any, id:number) => (
-            <Link to={item.address}>
-          <ListItem key={id} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item.item} />
-            </ListItemButton>
-          </ListItem>
-</Link>
+        {navItems.map((item: any, id: number) => (
+          <Link to={item.address} key={id}>
+            <ListItem disablePadding>
+              <ListItemButton sx={{ textAlign: 'center' }}>
+                <ListItemText primary={item.item} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
         ))}
       </List>
     </Box>
@@ -84,11 +84,11 @@ export default function Navbar(props: Props) {
             MyApp
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item:any, id:number) => (
-              <Link to={item.address}> <Button key={id} sx={{ color: '#fff' }}>
-                
-               {item.item}
-              </Button>
+            {navItems.map((item: any, id: number) => (
+              <Link to={item.address} key={id}>
+                <Button sx={{ color: '#fff' }}>
+                  {item.item}
+                </Button>
               </Link>
             ))}
           </Box>
@@ -112,7 +112,7 @@ export default function Navbar(props: Props) {
         </Drawer>
       </nav>
       <Toolbar />
-     
+
     </Box>
   );
 }
