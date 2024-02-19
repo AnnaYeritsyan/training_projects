@@ -5,8 +5,8 @@ export type PlaceHolderItem =
         id: number,
         name: string,
         username: string,
-        email: string;
-       
+        email: string,
+        data:any,
     }
 type InitialState = {
     user: null | string,
