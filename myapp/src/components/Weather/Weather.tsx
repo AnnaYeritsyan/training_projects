@@ -7,9 +7,8 @@ const Weather = () => {
     const [location, setLocation] = useState<string>("");
     const [notFound, setNotFound] = useState<boolean>(false);
     const [day, setDay] = useState<string | null>(null)
-    const [fiveDay, setFiveDay] = useState<string[]>()
-
-
+    const [five, setFive] = useState<boolean>(false)
+    const [allData, setAllData] = useState<any[]>([])
 // api.openweathermap.org/data/2.5/response?lat={lat}&lon={lon}&appid={API key}
     // https://api.openweathermap.org/data/2.5/forecast?lat=40.1811&lon=44.5136&appid=6305c8aba12d4697bca415a04fa335fb
    
@@ -19,21 +18,16 @@ const Weather = () => {
                 try {
                     const response = await  getWeatherByLocation(location, buttonName);
                     console.log(response)
-                    let prevDate = ""; // Initialize variable to store previous date
-
+                    let prevDate:string = ""; 
+                    let loopData:string[] = [];
                     for (let i = 0; i < response.length; i++) {
                         const currentDate = response[i].dt_txt.slice(0, 10);
-            
-                        // Check if current date is different from the previous date
                         if (currentDate !== prevDate) {
-                            console.log(currentDate);
-                            prevDate = currentDate; // Update previous date to current date
+                            loopData.push(response[i])
+                            prevDate = currentDate; 
                         }
-            
-                  
                     }
-                
-    
+                    setAllData(loopData)
    
     
                     if (response && response.name) {
@@ -51,17 +45,27 @@ const Weather = () => {
           
     }
     const handleClick = (ev:any)=>{
-        console.log(ev.target.name)
+
         setDay(ev.target.name)
         searchLocation(ev.target.name)
+        if(ev.target.name === 'fiveDay'){
+            setFive(true)  
+        }
+        else{
+            setFive(false)
+        }
     }
 const handleKey = (ev: React.KeyboardEvent<HTMLInputElement>)=>{
     
         if (ev.key === 'Enter') {
             searchLocation(day)
+          
+
         }
+
 }
-console.log(data)
+
+console.log(allData)
     return (
         <Box>
             hello weather page
@@ -87,7 +91,24 @@ console.log(data)
                 ) : null
             }
             <Box>
-               
+               {
+                five?<Box>
+                    Five Day
+                    {
+                        allData.map((e:any, id:number)=>{
+                            console.log(e)
+                            return (
+                                <Box key={id}>
+                                <h1> {e.dt_txt}</h1>   
+                                <h1>{e.main.temp.toFixed()}Kelvin</h1>
+                                <h1>{((e.main.temp -273.15)).toFixed()} C</h1>
+                                </Box>
+                            )
+                        })
+                    }
+                   
+                    </Box>:<Box>one day</Box>
+               }
             </Box>
         </Box>
     );
