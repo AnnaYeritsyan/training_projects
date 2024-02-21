@@ -19,15 +19,23 @@ const Weather = () => {
                 try {
                     const response = await  getWeatherByLocation(location, buttonName);
                     console.log(response)
-                for(let i=0; i<=response.length; i++){
-                    let date = new Date(response[i].dt * 1000)
+                    let prevDate = ""; // Initialize variable to store previous date
+
+                    for (let i = 0; i < response.length; i++) {
+                        const currentDate = response[i].dt_txt.slice(0, 10);
+            
+                        // Check if current date is different from the previous date
+                        if (currentDate !== prevDate) {
+                            console.log(currentDate);
+                            prevDate = currentDate; // Update previous date to current date
+                        }
+            
                   
+                    }
+                
     
-    console.log(`Day ${i + 1}:`);
-    console.log(`Date: ${date.toDateString()}`);
- 
-                    console.log(date)
-                }
+   
+    
                     if (response && response.name) {
                         console.log(response.name)
                         setData(response);
@@ -53,7 +61,7 @@ const handleKey = (ev: React.KeyboardEvent<HTMLInputElement>)=>{
             searchLocation(day)
         }
 }
-
+console.log(data)
     return (
         <Box>
             hello weather page
@@ -78,6 +86,9 @@ const handleKey = (ev: React.KeyboardEvent<HTMLInputElement>)=>{
                     </Box>
                 ) : null
             }
+            <Box>
+               
+            </Box>
         </Box>
     );
 };
