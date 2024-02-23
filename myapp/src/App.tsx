@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import SignIn from './components/signIn/signIn';
 import { userSelectors } from 'store/users/config';
 import Logout from './components/LogOut/Logout';
@@ -10,6 +10,7 @@ import HomeWrapper from './components/Page/HomeWrapper';
 import Dashboard from './components/Dashboard/Dashboard';
 import { useAppSelector } from 'store';
 import Weather from 'components/Weather/Weather';
+import Chat from 'components/Chat/Chat';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
               <Route index element={<Home/>}/>
               <Route path='/dashboard' element={<Dashboard/>}/>
               <Route path='/weather' element={<Weather/>}/>
+              <Route path='/chat' element={<Chat/>}/>
             </Route>
 
             </>

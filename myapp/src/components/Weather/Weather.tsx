@@ -1,5 +1,4 @@
 import { Box, Button } from "@mui/material";
-import axios, { AxiosError } from "axios";
 import { useState } from "react";
 import { getWeatherByLocation } from "./WeatherAPI/WeatherAPI";
 const Weather = () => {

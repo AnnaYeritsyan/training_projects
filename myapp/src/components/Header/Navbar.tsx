@@ -30,6 +30,7 @@ const navItems = [
   { item: 'Dashboard', address: '/dashboard' },
   { item: 'Lee Algorithm', address: '/lee_algorithm' },
   { item: 'Weather', address: '/weather' },
+  { item: 'Chat', address: '/chat' },
 
 ]
 export default function Navbar(props: Props) {
