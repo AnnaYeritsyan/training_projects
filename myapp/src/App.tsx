@@ -11,16 +11,31 @@ import Dashboard from './components/Dashboard/Dashboard';
 import { useAppSelector } from 'store';
 import Weather from 'components/Weather/Weather';
 import Chat from 'components/Chat/Chat';
-
+import { useState, useEffect } from 'react';
 
 function App() {
+  
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const user = useAppSelector(userSelectors.selectUser);
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem('user');
+    if (loggedInUser) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const handleLogin = (user:any) => {
+    localStorage.setItem('user', JSON.stringify(user));
+    setIsLoggedIn(true);
+  };
+
   return (
     <>
      {/* <Header/> */}
       <BrowserRouter>
         <Routes>
-          {user ? (
+          {isLoggedIn ? (
           <>
       
             <Route path="/" element={<HomeWrapper/>} >
@@ -34,7 +49,7 @@ function App() {
 
             
           ) : (
-            <Route index element={<SignIn />} />
+            <Route index element={<SignIn onLogin={handleLogin}  />} />
           )}
         </Routes>
       </BrowserRouter>

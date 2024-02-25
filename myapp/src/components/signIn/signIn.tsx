@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { usersActions } from 'store/users/config'
 
-const SignIn = () => {
+const SignIn = ({onLogin}:any) => {
 const [login, setLogin] = useState<string>('')
 const [password, setPassword] = useState<string>('')
 const dispatch = useDispatch()
+
 const handleSubmit = (e:any)=>{
     e.preventDefault()
   
@@ -14,7 +15,9 @@ const handleSubmit = (e:any)=>{
         name:login,
         password:password,
     })
+     
     )
+    onLogin({ name: login, password:password });
 }
     return (
         <div >

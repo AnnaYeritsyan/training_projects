@@ -13,7 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 
 interface Props {
@@ -22,6 +22,9 @@ interface Props {
    * You won't need it on your project.
    */
   window?: () => Window;
+}
+function upDatePage(){
+  return  window.location.reload()
 }
 
 const drawerWidth = 240;
@@ -34,12 +37,20 @@ const navItems = [
 
 ]
 export default function Navbar(props: Props) {
+  const navigate = useNavigate()
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
+  const handleLogOut = () => {
+    localStorage.removeItem('user');
+    navigate('/')
+    upDatePage()
+  };
+  
+  
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
@@ -57,7 +68,9 @@ export default function Navbar(props: Props) {
             </ListItem>
           </Link>
         ))}
+        <Button onClick={handleLogOut}>Log out</Button>
       </List>
+
     </Box>
   );
 
@@ -92,6 +105,7 @@ export default function Navbar(props: Props) {
                 </Button>
               </Link>
             ))}
+              <Button sx={{color:'white'}} onClick={handleLogOut}>Log out</Button>
           </Box>
         </Toolbar>
       </AppBar>
