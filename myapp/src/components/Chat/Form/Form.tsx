@@ -1,6 +1,7 @@
 // Form.js
-import { Button } from "@mui/material";
+import { Button,OutlinedInput } from "@mui/material";
 import { SyntheticEvent, useState } from "react";
+import SendIcon from '@mui/icons-material/Send';
 
 const Form = ({ sendMessage }:any) => {
     const [message, setMessage] = useState("");
@@ -18,8 +19,8 @@ const Form = ({ sendMessage }:any) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type="text" value={message} onChange={handleMessageChange} />
-            <Button type="submit">Submit</Button>
+            <OutlinedInput value={message} onChange={handleMessageChange} placeholder="Please enter message" />
+            <Button variant="contained" endIcon={<SendIcon />} type="submit"></Button>
         </form>
     );
 };
