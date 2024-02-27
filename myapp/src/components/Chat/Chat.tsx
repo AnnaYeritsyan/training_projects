@@ -4,23 +4,27 @@ import { useEffect, useRef, useState } from "react";
 import { Paper } from "@mui/material";
 import Form from '../Chat/Form/Form';
 import MessageField from "./Chat/MessageField/MessageField";
-
+import Users from "./Users/Users";
+// import './Chat.css'
 type Message = {
       id: number;
-      text: string;
-  
+      user:string;
+      message: string;
+      date:string;
+
     };
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [username, setUsername] = useState("");
 
-  const socketInstance:any = useRef(null);
-  
+  const socketInstance = useRef<null | any>(null);
+  const storedUser = localStorage.getItem('user');   
   useEffect(() => {
-    const socket:any = io('http://localhost:8085', { transports: ["websocket"] });
+    const socket:any = io('http://10.70.178.228:8085', { transports: ["websocket"] });
+    // const socket:any = io('http://localhost:8085', { transports: ["websocket"] });
     socketInstance.current = socket;
-
+ 
     socket.on('load_messages', (messages:any) => {
       setMessages(messages);
     });
@@ -35,12 +39,13 @@ const Chat = () => {
       });
     });
 
-    const storedUser = localStorage.getItem('user');
+    
+  
     if (storedUser) {
       const storedUsername = JSON.parse(storedUser).name;
       setUsername(storedUsername);
     }
-
+  console.log(username)
     return () => {
       socket.disconnect();
     };
@@ -51,15 +56,20 @@ const Chat = () => {
   }
   
   const sendMessage = (message:any) => {
+    
     const d = new Date();
 let h = addZero(d.getHours());
 let m = addZero(d.getMinutes());
-let s = addZero(d.getSeconds());
+// let s = addZero(d.getSeconds());
 let time = h + ":" + m ;
     if (socketInstance.current) {
+    
+      console.log(username)
+    console.log(message)
       socketInstance.current.emit('new_message', {
+        id: message.length,
         username: username,
-        'message': message,
+        message: message,
         date:time,
       });
     }
@@ -68,6 +78,7 @@ let time = h + ":" + m ;
   return (
     <div>
       <Paper>
+        <Users />
         <MessageField messages={messages}  />
         <Form sendMessage={sendMessage} />
       </Paper>

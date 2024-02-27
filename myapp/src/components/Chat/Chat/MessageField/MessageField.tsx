@@ -6,12 +6,12 @@ const MessageField = ({ messages }: any) => {
   return (
     <Paper sx={{ height: '28rem', width: '50%', bgcolor: 'rgb(185 197 188 / 30%)', overflowY: 'auto' }}>
       <Box p={2}>
-        {messages.map((message: any, index: number) => (
+        {messages.map((messages: any, index: number) => (
           <Typography key={index} component="div" gutterBottom>
-            <strong>{message.username}: </strong>
-            {message.message}
+            <strong>{messages.username}: </strong>
+            {messages.message}
             <Typography variant="caption" color="text.secondary">
-              {message.date}
+              {messages.date}
             </Typography>
           </Typography>
         ))}

@@ -7,14 +7,22 @@ const Form = ({ sendMessage }:any) => {
     const [message, setMessage] = useState("");
 
     const handleMessageChange = (e:any) => {
-        setMessage(e.target.value);
+        if(e.target.value !== ''){
+             setMessage(e.target.value);
+        }
+        else{
+            setMessage('')
+        }
+       
     }
 
     const handleSubmit = (e:SyntheticEvent) => {
         e.preventDefault();
         console.log("send");
+        if(message !== ''){
         sendMessage(message); 
         setMessage("");
+        }
     }
 
     return (
