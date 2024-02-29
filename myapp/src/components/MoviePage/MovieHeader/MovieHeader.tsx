@@ -1,34 +1,16 @@
-import { Box, ListItem, ListItemButton,ListItemText } from '@mui/material';
+import {Box, ListItem, ListItemButton, ListItemText} from '@mui/material';
+import {Link} from 'react-router-dom'
 
-
-        
 const MovieHeader = () => {
     return (
-        <Box>
-            <nav style={{ width:"28%",display:'flex', justifyContent:'space-between' }}>
-             <ListItem disablePadding 
-             sx={{border:'1px solid black',
-             borderRadius:'8px', 
-             width:'100px', 
-             backgroundColor:'white',
-             color:'blue'
-            }}>
-            <ListItemButton component="a" href="moviePage">
-              <ListItemText primary="Movies" />
-            </ListItemButton>
-          </ListItem>  
-          <ListItem disablePadding 
-            sx={{border:'1px solid black',
-            borderRadius:'8px', 
-            width:'100px', 
-            backgroundColor:'white',
-            color:'blue'
-        }}> 
-            <ListItemButton component="a" href="movieAdmin" >
-              <ListItemText primary="Admin " />
-            </ListItemButton>
-          </ListItem>  
-          </nav>
+        <Box sx={{
+            width: '100px',
+            display: "flex",
+            gap: '1rem'
+        }}>
+            <Link to="/movieAdmin" className="movies_header_link">
+                Admin
+            </Link>
         </Box>
     );
 };

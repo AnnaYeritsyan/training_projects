@@ -181,3 +181,37 @@ body {
 a{
   text-decoration: none;
 }
+
+.flex-center {
+	display: flex;
+	align-items: center;
+	gap: 1rem
+}
+
+.flex-wrap {
+	flex-wrap: wrap
+}
+
+.movies_header_link {
+	border: 1px solid black;
+	border-radius: 8px;
+	background-color: #FFFFFF;
+	color: blue;
+	padding: 5px 20px;
+	align-items: center;
+	display: flex;
+}
+
+.w-full {
+	width: 100%;
+}
+
+.flex-col {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem
+}
+
+.mt {
+	margin-top: 1rem;
+}

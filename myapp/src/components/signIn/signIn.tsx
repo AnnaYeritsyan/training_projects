@@ -41,9 +41,9 @@ const handleSubmit = (e:any)=>{
                         <div className="social-login">
                             <h3>log in via</h3>
                             <div className="social-icons">
-                                <a href="#" className="social-login__icon fab fa-instagram"></a>
-                                <a href="#" className="social-login__icon fab fa-facebook"></a>
-                                <a href="#" className="social-login__icon fab fa-twitter"></a>
+                                <span className="social-login__icon fab fa-instagram"></span>
+                                <span className="social-login__icon fab fa-facebook"></span>
+                                <span className="social-login__icon fab fa-twitter"></span>
                             </div>
                         </div>
                     </div>

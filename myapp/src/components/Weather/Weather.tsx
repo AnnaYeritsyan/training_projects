@@ -16,7 +16,6 @@ const Weather = () => {
 
                 try {
                     const response = await  getWeatherByLocation(location, buttonName);
-                    console.log(response)
                     let prevDate:string = ""; 
                     let loopData:string[] = [];
                     for (let i = 0; i < response.length; i++) {
