@@ -12,6 +12,7 @@ import { useAppSelector } from 'store';
 import Weather from 'components/Weather/Weather';
 import Chat from 'components/Chat/Chat';
 import { useState, useEffect } from 'react';
+import VideoPlayer from 'components/VideoPlayer/VideoPlayer';
 
 function App() {
   
@@ -43,6 +44,7 @@ function App() {
               <Route path='/dashboard' element={<Dashboard/>}/>
               <Route path='/weather' element={<Weather/>}/>
               <Route path='/chat' element={<Chat/>}/>
+              <Route path='/videoPlayer' element={<VideoPlayer />}/>
             </Route>
 
             </>
