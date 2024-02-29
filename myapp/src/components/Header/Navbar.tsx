@@ -34,7 +34,8 @@ const navItems = [
   { item: 'Lee Algorithm', address: '/lee_algorithm' },
   { item: 'Weather', address: '/weather' },
   { item: 'Chat', address: '/chat' },
-  {item: 'VideoPlayer', address: '/videoPlayer' }
+  {item: 'VideoPlayer', address: '/videoPlayer' },
+  {item: 'MoviePage', address: '/moviePage' },
 
 ]
 export default function Navbar(props: Props) {

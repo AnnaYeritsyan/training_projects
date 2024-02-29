@@ -1,0 +1,38 @@
+[
+    {
+        "id": "1",
+        "title": "Inception",
+        "description": "A thief who enters the dreams of others to steal their secrets from their subconscious.",
+        "year": 2010,
+        "country": "USA",
+        "rating": 8.8,
+        "genres": ["Action", "Adventure", "Sci-Fi"],
+        "actors": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Ellen Page"],
+        "imageUrl": "https://example.com/inception.jpg",
+        "videoUrl": "https://www.youtube.com/watch?v=d3A3-zSOBT4"
+      },
+      {
+        "id": "2",
+        "title": "The Shawshank Redemption",
+        "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+        "year": 1994,
+        "country": "USA",
+        "rating": 9.3,
+        "genres": ["Drama"],
+        "actors": ["Tim Robbins", "Morgan Freeman", "Bob Gunton"],
+        "imageUrl": "https://example.com/shawshank_redemption.jpg",
+        "videoUrl": "https://www.youtube.com/watch?v=6hB3S9bIaco"
+      },
+      {
+        "id": "3",
+        "title": "The Dark Knight",
+        "description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+        "year": 2008,
+        "country": "USA",
+        "rating": 9.0,
+        "genres": ["Action", "Crime", "Drama"],
+        "actors": ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
+        "imageUrl": "https://example.com/dark_knight.jpg",
+        "videoUrl": "https://www.youtube.com/watch?v=EXeTwQWrcwY"
+      }
+]

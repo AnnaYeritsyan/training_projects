@@ -13,6 +13,8 @@ import Weather from 'components/Weather/Weather';
 import Chat from 'components/Chat/Chat';
 import { useState, useEffect } from 'react';
 import VideoPlayer from 'components/VideoPlayer/VideoPlayer';
+import MoviePage from 'components/MoviePage/MoviePage';
+import MovieAdmin from 'components/MoviePage/MovieAdmin/MovieAdmin';
 
 function App() {
   
@@ -45,6 +47,8 @@ function App() {
               <Route path='/weather' element={<Weather/>}/>
               <Route path='/chat' element={<Chat/>}/>
               <Route path='/videoPlayer' element={<VideoPlayer />}/>
+              <Route path='/moviePage' element={<MoviePage/>}/>
+              <Route path='/movieAdmin' element={<MovieAdmin/>}/>
             </Route>
 
             </>
