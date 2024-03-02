@@ -3,7 +3,7 @@ import MovieHeader from './MovieHeader/MovieHeader';
 import {useEffect} from 'react';
 import {usersActions, userSelectors} from 'store/users/config';
 import {useAppDispatch, useAppSelector} from 'store';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 
 const MoviePage = () => {
@@ -15,14 +15,15 @@ const MoviePage = () => {
         dispatch(usersActions.getMovies())
     }, [dispatch]);
 
-    const handleClick = (item:any) =>{
-        navigate(item)
+    const handleClick = (id:any) =>{
+        navigate(`/moviePage/${id}`)
     }
     return (
         <Box>
             <MovieHeader/>
             <div className="flex-center flex-wrap">
                 {movies.map(item => (
+                    // <Link to={`/moviePage/${item.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                     <Card sx={{maxWidth: 345}} key={item.id} onClick={()=>handleClick(item.id)}>
                         <CardMedia
                             sx={{height: 140}}
@@ -51,6 +52,7 @@ const MoviePage = () => {
 
                         </CardContent>
                     </Card>
+                    // </Link>
                 ))}
             </div>
 

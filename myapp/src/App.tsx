@@ -15,9 +15,10 @@ import { useState, useEffect } from 'react';
 import VideoPlayer from 'components/VideoPlayer/VideoPlayer';
 import MoviePage from 'components/MoviePage/MoviePage';
 import MovieAdmin from 'components/MoviePage/MovieAdmin/MovieAdmin';
+import MovieId from 'components/MoviePage/MovieId/MovieId';
 
 function App() {
-  
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const user = useAppSelector(userSelectors.selectUser);
 
@@ -28,34 +29,38 @@ function App() {
     }
   }, []);
 
-  const handleLogin = (user:any) => {
+  const handleLogin = (user: any) => {
     localStorage.setItem('user', JSON.stringify(user));
     setIsLoggedIn(true);
   };
 
   return (
     <>
-     {/* <Header/> */}
+      {/* <Header/> */}
       <BrowserRouter>
         <Routes>
           {isLoggedIn ? (
-          <>
-      
-            <Route path="/" element={<HomeWrapper/>} >
-              <Route index element={<Home/>}/>
-              <Route path='/dashboard' element={<Dashboard/>}/>
-              <Route path='/weather' element={<Weather/>}/>
-              <Route path='/chat' element={<Chat/>}/>
-              <Route path='/videoPlayer' element={<VideoPlayer />}/>
-              <Route path='/moviePage' element={<MoviePage/>}/>
-              <Route path='/movieAdmin' element={<MovieAdmin/>}/>
-            </Route>
+            <>
+
+              <Route path="/" element={<HomeWrapper />} >
+                <Route index element={<Home />} />
+                <Route path='/dashboard' element={<Dashboard />} />
+                <Route path='/weather' element={<Weather />} />
+                <Route path='/chat' element={<Chat />} />
+                <Route path='/videoPlayer' element={<VideoPlayer />} />
+                <Route path='/moviePage' element={<MoviePage />}/>
+                  <Route path='/moviePage/:id' element={<MovieId />} />
+            
+                <Route path='/movieAdmin' element={<MovieAdmin />} />
+
+
+              </Route>
 
             </>
 
-            
+
           ) : (
-            <Route index element={<SignIn onLogin={handleLogin}  />} />
+            <Route index element={<SignIn onLogin={handleLogin} />} />
           )}
         </Routes>
       </BrowserRouter>
