@@ -3,6 +3,7 @@ import {MovieDTO} from "../../../store/users/users.slice";
 export async function fetchMoviesFromAPI() {
     try {
       const response = await fetch('http://localhost:3004/');
+      // const response = await fetch('http://10.70.178.228:3004')
       if (!response.ok) {
         throw new Error('Failed to fetch movie data');
       }
