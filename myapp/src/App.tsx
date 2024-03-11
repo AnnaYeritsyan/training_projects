@@ -16,6 +16,7 @@ import VideoPlayer from 'components/VideoPlayer/VideoPlayer';
 import MoviePage from 'components/MoviePage/MoviePage';
 import MovieAdmin from 'components/MoviePage/MovieAdmin/MovieAdmin';
 import MovieId from 'components/MoviePage/MovieId/MovieId';
+import Lee_Algorithm from 'components/LeeAlgorithm/LeeAlgorithm';
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
               <Route path="/" element={<HomeWrapper />} >
                 <Route index element={<Home />} />
                 <Route path='/dashboard' element={<Dashboard />} />
+                <Route path='lee_algorithm' element={<Lee_Algorithm/>}/>
                 <Route path='/weather' element={<Weather />} />
                 <Route path='/chat' element={<Chat />} />
                 <Route path='/videoPlayer' element={<VideoPlayer />} />
